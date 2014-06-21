@@ -22,7 +22,6 @@ Punktnr.  Ost E        Nord N       Grnd.hoehe
     4009  4515858,615  5745692,643      60,449
     4010  4515883,911  5745652,625      60,326
     4001  4515734,360  5745641,326      60,856
-    4002  4515734,360  5745641,326      60,856
 ~~~
 
 Therefore we needed following configuration within the perl script:
