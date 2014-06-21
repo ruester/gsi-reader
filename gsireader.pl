@@ -112,16 +112,25 @@ $insertat{'31'} = 3;
 $insertat{'32'} = 5;
 $insertat{'33'} = 5;
 $insertat{'57'} = 5;
-$insertat{'83'} = 5;
+$insertat{'81'} = 3;
+$insertat{'82'} = 3;
+$insertat{'83'} = 3;
+$insertat{'87'} = 3;
+
+# decimal seperator
+$sep = ",";
 
 # which character should be placed
-$thechar{'21'} = ",";
-$thechar{'22'} = ",";
-$thechar{'31'} = ",";
-$thechar{'32'} = ",";
-$thechar{'33'} = ",";
-$thechar{'57'} = ",";
-$thechar{'83'} = ",";
+$thechar{'21'} = $sep;
+$thechar{'22'} = $sep;
+$thechar{'31'} = $sep;
+$thechar{'32'} = $sep;
+$thechar{'33'} = $sep;
+$thechar{'57'} = $sep;
+$thechar{'81'} = $sep;
+$thechar{'82'} = $sep;
+$thechar{'83'} = $sep;
+$thechar{'87'} = $sep;
 
 sub usage {
     print "$0: <GSI file...>\n";
@@ -274,22 +283,34 @@ foreach $fname (@ARGV) {
         }
     }
 
+    $first = 1;
+
     print "$fname:\n";
 
     # print table header
     foreach $field (sort numchar keys %allkeys) {
-        printf "% *s ", $max{$field}, $fieldname{$field};
+        print "  " if (not $first);
+
+        printf "% -*s", $max{$field}, $fieldname{$field};
+
+        $first = 0;
     }
 
     print "\n";
 
     foreach $row (sort numchar keys %table) {
+        $first = 1;
+
         foreach $field (sort numchar keys %allkeys) {
             if (not defined $table{$row}{$field}) {
                 $table{$row}{$field} = '';
             }
 
-            printf "% *s ", $max{$field}, $table{$row}{$field};
+            print "  " if (not $first);
+
+            printf "% *s", $max{$field}, $table{$row}{$field};
+
+            $first = 0;
         }
 
         print "\n";
