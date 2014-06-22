@@ -87,7 +87,7 @@ $fieldname{'87'} = 'Zielpkt.hoehe';
 $fieldname{'88'} = 'Instr.hoehe';
 
 # Nivellier-Informationen
-$fieldname{'95'} = 'Innentemp.';
+$fieldname{'95'}  = 'Innentemp.';
 $fieldname{'330'} = 'Lattenabl.';
 $fieldname{'331'} = 'Lattenabl. R';
 $fieldname{'332'} = 'Lattenabl. V';
@@ -315,4 +315,7 @@ foreach $fname (@ARGV) {
 
         print "\n";
     }
+
+    close(FH)
+        or errmsg("could not close file '$fname'");
 }
