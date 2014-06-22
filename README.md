@@ -27,15 +27,18 @@ Punktnr.  Ost E        Nord N       Grnd.hoehe
 Therefore we needed following configuration within the perl script:
 
 ~~~
+# field descriptions
 $fieldname{'11'} = 'Punktnr.';
 $fieldname{'81'} = 'Ost E';
 $fieldname{'82'} = 'Nord N';
-$fieldname{'83'} = 'Grnd.hoehe';
+$fieldname{'83'} = 'Grundhoehe';
 
-$insertat{'81'} = 3;
+# where to place the separator?
+$insertat{'81'} = 3; # there are 3 digits after the separator
 $insertat{'82'} = 3;
 $insertat{'83'} = 3;
 
+# which separators?
 $thechar{'81'} = ",";
 $thechar{'82'} = ",";
 $thechar{'83'} = ",";
